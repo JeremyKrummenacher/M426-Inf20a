@@ -7,16 +7,22 @@ namespace Statistics
     {
         public double Mean(List<int> numbers)
         {
-            int sum = 0;
-            double mean = 0.0;
-
-            foreach (int number in numbers)
+            if (numbers.Count == 0)
             {
-                sum += number;
-            }
+                throw new ArgumentException();
+            }else   
+            {
+                int sum = 0;
+                double mean = 0.0;
 
-            mean = (double)sum / numbers.Count;
-            return mean;
+                foreach (int number in numbers)
+                {
+                    sum += number;
+                }
+
+                mean = (double)sum / numbers.Count;
+                return mean;
+            }
         }
     }
 }
