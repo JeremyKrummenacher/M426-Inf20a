@@ -13,7 +13,7 @@ namespace Statistics.Tests
             double expected = 2;
             Average average = new Average();
 
-            double actual = average.Mean(numbers);
+            double actual = average.Mean(numbers);  
 
             Assert.Equal(expected, actual);
         }
@@ -47,7 +47,5 @@ namespace Statistics.Tests
             Average average = new Average();
             Assert.Throws<ArgumentException>(() => Assert.Equal(0, average.Mean(numbers)));
         }
-
-
     }
 }
