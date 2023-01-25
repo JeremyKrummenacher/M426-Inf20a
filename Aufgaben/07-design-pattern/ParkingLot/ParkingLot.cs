@@ -2,7 +2,18 @@ using System.Runtime.CompilerServices;
 using System;
 namespace ParkingLot
 {
-    public class ParkingLot
+
+    public interface ISubscriber
+    {
+        string Update();
+    }
+
+    public interface IPublisher
+    {
+        string Update();
+    }
+
+    public class ParkingLot: ISubscriber
     {
         public string Name { get; }
         public int Capacity { get; }
@@ -39,6 +50,15 @@ namespace ParkingLot
             {
                 throw new InvalidOperationException("parking lot is empty");
             }
+        }
+
+        public class Displayer: ISubscriber
+        {
+            public void Update(ISubject subject)
+            {
+                Console.WriteLine("test");
+            }
+            
         }
     }
 }
